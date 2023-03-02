@@ -1,0 +1,226 @@
+swagger: "2.0"
+info:
+  description: ワイン情報サーバの API仕様
+  version: 0.0.6
+  title: VWC Server API
+  contact: {}
+host: 172.16.131.8:8080
+basePath: /
+tags:
+  - name: wine-api-controller
+    description: Wine API Controller
+paths:
+  /api/v1/wine/colors:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showColors
+      operationId: showColorsUsingGET
+      produces:
+        - application/json
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/countries:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showCountries
+      operationId: showCountriesUsingGET
+      produces:
+        - application/json
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/makers:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showMakers
+      operationId: showMakersUsingGET
+      produces:
+        - application/json
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/ratings:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showRatings
+      operationId: showRatingsUsingGET
+      produces:
+        - application/json
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/regions:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showRegions
+      operationId: showRegionsUsingGET
+      produces:
+        - application/json
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/tastes:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showTastes
+      operationId: showTastesUsingGET
+      produces:
+        - application/json
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/varieties:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showVarieties
+      operationId: showVarietiesUsingGET
+      produces:
+        - application/json
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/wines:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showWines
+      operationId: showWinesUsingGET
+      produces:
+        - application/json
+        - text/xml
+      parameters:
+        - name: countryCode
+          in: query
+          description: countryCode
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /api/v1/wine/wines/{wineId}:
+    get:
+      tags:
+        - wine-api-controller
+      summary: showWineByWineId
+      operationId: showWineByWineIdUsingGET
+      produces:
+        - application/json
+        - text/xml
+      parameters:
+        - name: wineId
+          in: path
+          description: wineId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WineAPIResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+definitions:
+  WineAPIResponse:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          type: object
+      statusCode:
+        type: integer
+        format: int32
+    title: WineAPIResponse
+

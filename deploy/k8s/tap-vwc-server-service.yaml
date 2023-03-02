@@ -1,0 +1,15 @@
+# tap-vwc-server.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: tap-vwc-server
+  labels:
+    app: tap-vwc-server
+    backstage.io/kubernetes-id: tap-vwc-server
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: tap-vwc-server

@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: vwc-server-api
+  description: The vwc-server REST API
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: user:guest
+  system: mp-demo-system
+  definition: 
+    $text: "https://github.com/smachida/bs-vwc-server/blob/main/api-docs-openapi.yaml"
+#    $text: "https://github.com/smachida/bs-vwc-server/blob/main/api-docs.json"
+#    $openapi: https://github.com/smachida/bs-vwc-server/blob/main/api-docs.yaml

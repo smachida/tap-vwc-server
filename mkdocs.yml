@@ -1,0 +1,7 @@
+site_name: bs-vwc-server
+
+nav:
+  - Home: index.md
+
+plugins:
+  - techdocs-core

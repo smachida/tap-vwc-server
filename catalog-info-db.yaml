@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: vwc-server-db-mysql
+  annotations:
+    backstage.io/kubernetes-id: vwc-server-db-mysql
+spec:
+  type: db
+  owner: user:guest
+  lifecycle: experimental
+  system: tanzu-demo-system
