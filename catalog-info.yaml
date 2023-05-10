@@ -2,19 +2,26 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: tap-vwc-server
+  description: VWC Server 
   annotations:
-    backstage.io/kubernetes-id: tap-vwc-server
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/part-of=tap-vwc-server
     backstage.io/techdocs-ref: dir:.
+  tags:
+    - java
+    - spring
+    - web
+    - tanzu
   links:
-    - url: http://172.16.131.8:8080/swagger-ui.html
+    - url: http://172.16.131.11:8080/swagger-ui.html
       title: Swagger UI
       icon: dashboard
 spec:
   type: service
-  owner: user:guest
   lifecycle: experimental
-  system: tanzu-demo-system
-  providesApis:
-    - vwc-server-api
-  dependsOn:
-    - resource:vwc-server-db-mysql
+  owner: default-team
+#  system: tanzu-demo-system
+#  providesApis:
+#    - vwc-server-api
+#  dependsOn:
+#    - resource:vwc-server-db-mysql
+

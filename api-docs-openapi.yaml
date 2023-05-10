@@ -230,7 +230,7 @@ paths:
           description: Not Found
       deprecated: false
 servers:
-  - url: //172.16.131.8:8080/
+  - url: //172.16.131.11:8080/
 components:
   schemas:
     WineAPIResponse:
