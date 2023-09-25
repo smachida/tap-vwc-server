@@ -1,0 +1,35 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: tap-vwc-server
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/has-tests: "true"
+    app.kubernetes.io/part-of: tap-vwc-server
+    tanzu.app.live.view: "true"
+#    apps.tanzu.vmware.com/auto-configure-actuators: "true"
+spec:
+  build:
+    env:
+      - name: BP_JVM_VERSION
+        value: "11"
+      - name: BP_MAVEN_BUILD_ARGUMENTS
+        value: "-Dmaven.test.skip=true package"
+  params:
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
+    - name: testing_pipeline_matching_labels
+      value:
+        apps.tanzu.vmware.com/pipeline: test-java
+  source:
+    git:
+      url: https://github.com/smachida/tap-vwc-server.git
+      ref:
+        branch: main
+  serviceClaims:
+    - name: mysql
+      ref:
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+        kind: ClassClaim
+        name: mysql-1
