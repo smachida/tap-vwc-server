@@ -25,7 +25,7 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: "container"
             - name: DATABASE_HOST
-              value: "172.16.131.10"
+              value: "172.16.131.5"
               #value: mysql.default.svc.cluster.local
             - name: DATABASE_PORT
               value: "3306"
